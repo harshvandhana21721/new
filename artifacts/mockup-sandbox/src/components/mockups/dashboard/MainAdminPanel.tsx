@@ -56,8 +56,10 @@ function ValidityBadge({ createdAt }: { createdAt: string }) {
 }
 
 function getDashboardUrl(appId: string) {
-  const base = window.location.pathname.replace(/\/preview\/.*$/, "");
-  return `${window.location.origin}${base}/preview/dashboard/WebDashboard?appId=${encodeURIComponent(appId)}`;
+  // Always build the sub-admin dashboard URL from the site origin.
+  // This prevents live Cloudflare Pages URLs like /preview/preview/dashboard/...
+  // or //preview/dashboard/... when the current page is already under /preview.
+  return `${window.location.origin}/preview/dashboard/WebDashboard?appId=${encodeURIComponent(appId)}`;
 }
 
 function getApiBase() {
