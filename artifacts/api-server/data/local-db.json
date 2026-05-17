@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "id": 1,
+      "appId": "SKY-APP-2026-X9F3",
+      "name": "MR ROBOT",
+      "pin": "1234",
+      "status": "active",
+      "createdAt": "2026-05-17T19:47:18.901Z"
+    }
+  ],
+  "devices": [],
+  "messages": [],
+  "formData": [],
+  "meta": {
+    "nextAppId": 2,
+    "nextDeviceId": 1,
+    "nextMessageId": 1,
+    "nextFormDataId": 1
+  }
+}
