@@ -1,0 +1,26 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "7wcbNiu_5-o7N59pZA1lU"
+uri = "file://attached_assets/MrRobot_Android_Complete.zip"
+type = "unspecified"
+title = "MrRobot Android — APP-SZ1U-TAOM-8WA5 Ready"
+
+[[outputs]]
+id = "4j9rORTLp-_2FaKdHSTqM"
+uri = "file://attached_assets/android_assets_updated.zip"
+type = "unspecified"
+title = "Android HTML Assets — Fixed (Clean DB data only)"
+
+[[outputs]]
+id = "aZ5sfkfSuLhbWzKl9RWL8"
+uri = "file://attached_assets/rt0T2_updated.zip"
+type = "unspecified"
+title = "rt0T2 — Complete Android Project (Updated Assets)"
+
+[[outputs]]
+id = "1A3NatCF_0SKLCkp5nLsE"
+uri = "file://mrrobot-complete.zip"
+type = "unspecified"
+title = "MR ROBOT — Complete Source Code"

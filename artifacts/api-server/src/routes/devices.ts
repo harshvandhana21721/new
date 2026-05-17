@@ -1,0 +1,33 @@
+import { Router, type IRouter } from "express";
+import { localDb, type DeviceRow } from "../lib/local-db";
+
+const router: IRouter = Router();
+
+router.get("/devices", (req, res) => {
+  const { userId, appId } = req.query;
+  const rows = localDb.listDevices({
+    appId: appId ? String(appId) : undefined,
+    userId: !appId && userId ? String(userId) : undefined,
+  });
+  res.json(rows);
+});
+
+router.get("/devices/:deviceId", (req, res) => {
+  const device = localDb.getDevice(req.params.deviceId);
+  if (!device) { res.status(404).json({ error: "Device not found" }); return; }
+  res.json(device);
+});
+
+router.patch("/devices/:deviceId", (req, res) => {
+  const { status, lastOnline, fcmToken, forwardEnabled } = req.body as Record<string, unknown>;
+  const updates: Partial<DeviceRow> = {};
+  if (status !== undefined) updates.status = String(status);
+  if (lastOnline !== undefined) updates.lastOnline = String(lastOnline);
+  if (fcmToken !== undefined) updates.fcmToken = String(fcmToken);
+  if (forwardEnabled !== undefined) updates.forwardEnabled = Boolean(forwardEnabled);
+  const updated = localDb.updateDevice(req.params.deviceId, updates);
+  if (!updated) { res.status(404).json({ error: "Device not found" }); return; }
+  res.json(updated);
+});
+
+export default router;
